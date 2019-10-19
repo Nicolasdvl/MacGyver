@@ -5,6 +5,7 @@ class setup:
         self.window = (window_width, window_height)
         self.sprite_width = window_width/15
         self.sprite_height = window_height/15
+        self.run = True
 
     def loading_stage(self, filename):
 
