@@ -3,7 +3,7 @@ class hero:
         self.pos = 16
     
 
-    def movement(pos):
+    def movement(self, pos):
         
         print("Quel déplacement voulez-vous effectuer ?")
         move = input()
