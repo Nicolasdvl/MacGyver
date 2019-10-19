@@ -1,8 +1,9 @@
-import setup
-import hero
+from setup import *
+from hero import *
 
 
 setup = setup()
 level = setup.loading_stage("level.txt")
 hero = hero()
-hero.movement(hero.pos)
+while hero.pos != "e":
+    hero.movement(hero.pos, level)
