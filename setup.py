@@ -1,4 +1,4 @@
-class setup:
+class Setup:
     def __init__(self):
         window_width = 750
         window_height = 750
