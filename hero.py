@@ -51,9 +51,18 @@ class Hero:
     def pick(self, inventory, pos_item, name_item, pos_hero):
         if pos_item == pos_hero:
             inventory.append(name_item)
+            inventory.sort()
             pos_item = 0
 
             return pos_item, inventory
         else :
             pass
+    
+    def craft(self, inventory):
+        if inventory == ['ether', 'tube', 'needle']:
+            inventory = ['syringe']
+            return inventory
+        else:
+            pass
+
 

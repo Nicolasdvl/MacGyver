@@ -5,9 +5,11 @@ class Guardian:
             if level[i] == "e":
                 self.pos = i
 
-    def is_there_anyone_here(self, pos, end, run):
-        if pos == end:
+    def is_there_anyone_here(self, pos, end, run, inventory):
+        if pos == end and inventory == ['syringe']:
             run = False
+        elif pos == end and inventory != ['syringe']:
+            run == False
         else:
             pass
         return run

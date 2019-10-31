@@ -16,5 +16,5 @@ while setup.run == True:
     hero.pick(hero.inventory, needle.pos, needle.name, hero.pos)
     hero.pick(hero.inventory, ether.pos, ether.name, hero.pos)
     hero.pick(hero.inventory, tube.pos, tube.name, hero.pos)
-    #ajout de méthode craft(), pour vérifier si tous les objets ont été récupérés
-    setup.run = guardian.is_there_anyone_here(hero.pos, guardian.pos, setup.run)
+    hero.craft(hero.inventory)
+    setup.run = guardian.is_there_anyone_here(hero.pos, guardian.pos, setup.run, hero.inventory)
