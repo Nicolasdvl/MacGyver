@@ -1,68 +1,61 @@
 class Hero:
     def __init__(self, level):
-        for i in range(15*15):
-            if level[i] == "s":
-                self.pos = i
+        for pos,element in enumerate(level):
+            if element == "s":
+                self.pos = pos
         self.inventory = []
 
-    def movement(self, pos, level):
-        
+    def move(self, level):
+        pos = self.pos
         move = input()
         if move == "z":
 
             if level[pos - 15] == "x":
-                return int(pos)
+                self.pos = pos
             
             else:
                 pos = pos - 15
-                return int(pos)
+                self.pos = pos
                 
         elif move == "s":
 
             if level[pos + 15] == "x":
-                return int(pos)
+                self.pos = pos
             
             else:
                 pos = pos + 15
-                return int(pos)
+                self.pos = pos
                 
         elif move == "q":
 
             if level[pos - 1] == "x":
-                return int(pos)
+                self.pos = pos
             
             else:
                 pos = pos - 1
-                return int(pos)
+                self.pos = pos
                 
         elif move == "d":
 
             if level[pos + 1] == "x":
-                return int(pos)
+                self.pos = pos
             
             else:
                 pos = pos + 1
-                return int(pos)
+                self.pos = pos
                 
         else:
             print("Saisie non compris, utilisez les touches zqsd")
 
     
-    def pick(self, inventory, pos_item, name_item, pos_hero):
-        if pos_item == pos_hero:
-            inventory.append(name_item)
-            inventory.sort()
-            pos_item = 0
-
-            return pos_item, inventory
-        else :
-            pass
+    def pick(self, item):
+        if item.pos == self.pos:
+            self.inventory.append(item.name)
+            self.inventory.sort()
+            item.pos = 0
     
-    def craft(self, inventory):
-        if inventory == ['ether', 'tube', 'needle']:
-            inventory = ['syringe']
-            return inventory
-        else:
-            pass
+    def craft(self):
+        if self.inventory == ['ether', 'tube', 'needle']:
+            self.inventory = ['syringe']
 
 

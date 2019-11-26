@@ -2,19 +2,33 @@ from setup import Setup
 from hero import Hero
 from guardian import Guardian
 from items import Items
+from game import Display
+import pygame
 
-setup = Setup()
-level = setup.loading_stage("level.txt")
-hero = Hero(level)
-guardian = Guardian(level)
-needle = Items("needle", level)
-ether = Items("ether", level)
-tube = Items("tube", level)
 
-while setup.run == True:
-    hero.pos = hero.movement(hero.pos, level)
-    hero.pick(hero.inventory, needle.pos, needle.name, hero.pos)
-    hero.pick(hero.inventory, ether.pos, ether.name, hero.pos)
-    hero.pick(hero.inventory, tube.pos, tube.name, hero.pos)
-    hero.craft(hero.inventory)
-    setup.run = guardian.is_there_anyone_here(hero.pos, guardian.pos, setup.run, hero.inventory)
+def main():
+    pygame.init()
+    setup = Setup()
+    display = Display()
+    level = setup.loading_stage("level.txt")
+    hero = Hero(level)
+    guardian = Guardian(level)
+    needle = Items("needle", level)
+    ether = Items("ether", level)
+    tube = Items("tube", level)
+    display.draw_window()
+
+    while setup.run == True:
+        
+        hero.move(level)
+        hero.pick(needle)
+        hero.pick(ether)
+        hero.pick(tube)
+        hero.craft()
+        #display.transform_items()
+        display.draw_labyrinth(level, setup)
+        display.draw_items(hero, display.hero, setup)
+
+        setup.run = guardian.is_there_anyone_here(hero, setup)
+
+main()

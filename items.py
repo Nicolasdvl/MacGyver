@@ -1,4 +1,4 @@
-from random import *
+from random import randint
 
 class Items:
     def __init__(self, name, level):
