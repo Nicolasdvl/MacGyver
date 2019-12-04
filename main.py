@@ -16,10 +16,12 @@ def main():
     needle = Items("needle", level)
     ether = Items("ether", level)
     tube = Items("tube", level)
+    #keys = Input()
     display.draw_window()
 
     while setup.run == True:
         
+        #keys.get_keys()
         hero.move(level)
         hero.pick(needle)
         hero.pick(ether)
