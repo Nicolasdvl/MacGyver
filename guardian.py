@@ -7,8 +7,8 @@ class Guardian:
         for pos, element in level.items():
             if element == "e":
                 self.pos = pos
-        self.visibility = 1
-        
+        self.visibility = True
+
     def is_there_anyone_here(self, hero, config):
         """ Vérifie les conditions de victoire
         """

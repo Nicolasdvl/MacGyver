@@ -6,7 +6,6 @@ class Config:
         self.window_width = 750
         self.window_height = 750
         self.window = (self.window_width, self.window_height)
-        #self.font_pos = 
         self.sprite_width = int(self.window_width/15)
         self.sprite_height = int(self.window_height/15)
         self.inventory_sprite = int(self.sprite_height/2)
@@ -23,9 +22,9 @@ class Config:
         self.win = False
 
     def loading_stage(self, filename):
-        """Parcours un fichier txt pour le convertir en dico 
+        """Parcours un fichier txt pour le convertir en dico
         """
-
+        
         with open(filename, "r") as stage:
             k = 0
             structure = {}

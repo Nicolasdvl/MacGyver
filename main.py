@@ -42,5 +42,6 @@ def main():
         pygame.display.update()
     display.draw_final(config)
 
+
 if __name__ == "__main__":
     main()

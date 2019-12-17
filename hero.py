@@ -1,16 +1,17 @@
 class Hero:
     def __init__(self, level):
-        """ Parcours le dico level pour trouver la pos de héro et initialise un inventaire
+        """Parcours le dico level pour trouver la pos de héro
+        et initialise un inventaire
         """
 
         for pos, element in level.items():
             if element == "s":
                 self.pos = pos
         self.inventory = []
-        self.visibility = 1
+        self.visibility = True
 
     def move(self, level, move):
-        """ Permet le déplacement de héro
+        """Permet le déplacement de héro
         """
 
         pos = self.pos
@@ -51,7 +52,8 @@ class Hero:
                 self.pos = pos
 
     def pick(self, item):
-        """ Ajoute un objet à l'inventaire de héro si celui-ci se trouve sur la même position
+        """Ajoute un objet à l'inventaire de héro
+        si celui-ci se trouve sur la même position
         """
 
         if item.pos == self.pos and item.visibility == 1:
@@ -59,8 +61,12 @@ class Hero:
             item.visibility = 0
 
     def craft(self):
-        """ Vérifie si le héro a ramassé tous les objets
+        """Vérifie si le héro a ramassé tous les objets
         """
-        
-        if 'ether' in self.inventory and 'tube' in self.inventory and 'needle' in self.inventory:
+
+        if (
+            'ether' in self.inventory
+            and 'tube' in self.inventory
+            and 'needle' in self.inventory
+        ):
             self.inventory = ['syringe']

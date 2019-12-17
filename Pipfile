@@ -7,9 +7,9 @@ verify_ssl = true
 flake8 = "*"
 autopep8 = "*"
 pylint = "*"
+rope = "*"
 
 [packages]
 pygame = "*"
 
 [requires]
-python_version = "3.7"
